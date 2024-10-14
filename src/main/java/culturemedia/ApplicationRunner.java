@@ -7,7 +7,7 @@ public class ApplicationRunner {
     protected static final Logger logger = LoggerFactory.getLogger(ApplicationRunner.class);
 
     void run() {
-        logger.info("La aplicación ha sido ejecutada exitosamente.");
+        logger.info("The application has been successfully executed.");
     }
 
 }
