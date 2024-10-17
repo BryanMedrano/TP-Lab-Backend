@@ -1,5 +1,6 @@
 package culturemedia.repository.impl;
 
+import culturemedia.exception.DurationNotValidException;
 import culturemedia.model.Video;
 import culturemedia.model.View;
 import culturemedia.repository.CulturotecaService;
@@ -14,7 +15,7 @@ public class CulturotecaServiceImpl implements CulturotecaService {
     }
 
     @Override
-    public Video save(Video save) {
+    public Video save(Video save) throws DurationNotValidException {
         return null;
     }
 
