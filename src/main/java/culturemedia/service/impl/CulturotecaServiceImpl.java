@@ -1,14 +1,13 @@
-package culturemedia.repository.impl;
+package culturemedia.service.impl;
 
 import culturemedia.exception.DurationNotValidException;
 import culturemedia.model.Video;
 import culturemedia.model.View;
-import culturemedia.repository.CulturotecaService;
+import culturemedia.service.CulturotecaService;
 
 import java.util.List;
 
 public class CulturotecaServiceImpl implements CulturotecaService {
-
 
     @Override
     public List<Video> findAll() {

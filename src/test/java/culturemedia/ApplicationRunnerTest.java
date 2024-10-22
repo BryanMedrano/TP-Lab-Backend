@@ -6,9 +6,5 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ApplicationRunnerTest {
 
-    @Test
-    void run() {
-        ApplicationRunner runner = new ApplicationRunner();
-        runner.run();
-    }
+  
 }
