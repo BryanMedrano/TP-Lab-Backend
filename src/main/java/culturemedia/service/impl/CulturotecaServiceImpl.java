@@ -8,6 +8,7 @@ import culturemedia.repository.VideoRepository;
 import culturemedia.repository.ViewsRepository;
 import culturemedia.service.CulturotecaService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CulturotecaServiceImpl implements CulturotecaService {
@@ -37,5 +38,33 @@ public class CulturotecaServiceImpl implements CulturotecaService {
     @Override
     public View add(View add) {
         return viewsRepository.add(add);
+    }
+
+    @Override
+    public List<Video> findByTitle(String title) throws VideoNotFoundException {
+        List<Video> filteredVideos = new ArrayList<>();
+        for (Video video : videoRepository.findAll()) {
+            if (video.title().toLowerCase().contains(title.toLowerCase())) {
+                filteredVideos.add(video);
+            }
+        }
+        if (filteredVideos.isEmpty()) {
+            throw new VideoNotFoundException(title);
+        }
+        return filteredVideos;
+    }
+
+    @Override
+    public List<Video> findByDuration(Double fromDuration, Double toDuration) throws VideoNotFoundException {
+        List<Video> filteredVideos = new ArrayList<>();
+        for (Video video : videoRepository.findAll()) {
+            if (video.duration() >= fromDuration && video.duration() <= toDuration) {
+                filteredVideos.add(video);
+            }
+        }
+        if (filteredVideos.isEmpty()) {
+            throw new VideoNotFoundException();
+        }
+        return filteredVideos;
     }
 }
