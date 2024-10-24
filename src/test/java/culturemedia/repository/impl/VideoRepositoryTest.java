@@ -25,8 +25,6 @@ class VideoRepositoryTest {
 										   new Video("04", "Título 4", "----", 3.5),
 										   new Video("05", "Clic 5", "----", 5.7),
 									 	   new Video("06", "Clic 6", "----", 5.1));
-
-
 		for ( Video video : videos ) {
 			videoRepository.save( video );
 		}

@@ -48,4 +48,37 @@ class CulturotecaServiceImplTest {
         assertEquals(6, videos.size());
     }
 
+    @Test
+    void when_FindByTitle_videos_with_the_title_should_be_returned_successfully() throws VideoNotFoundException {
+        List<Video> videos = culturotecaService.findByTitle("Clic");
+        assertEquals(2, videos.size());
+        assertEquals("Clic 5", videos.get(0).title());
+        assertEquals("Clic 6", videos.get(1).title());
+    }
+
+    @Test
+    void when_FindByTitle_does_not_find_any_video_an_VideoNotFoundException_should_be_thrown_successfully() {
+        VideoNotFoundException exception = assertThrows(VideoNotFoundException.class, () -> {
+            culturotecaService.findByTitle("Laboratory");
+        });
+        assertEquals("Video not found by title: Laboratory", exception.getMessage());
+    }
+
+    @Test
+    void when_FindByDuration_videos_in_the_duration_range_should_be_returned_successfully() throws VideoNotFoundException {
+        List<Video> videos = culturotecaService.findByDuration(4.5, 5.5);
+        assertEquals(3, videos.size());
+        assertEquals("Título 1", videos.get(0).title());
+        assertEquals("Título 2", videos.get(1).title());
+        assertEquals("Clic 6", videos.get(2).title());
+    }
+
+    @Test
+    void when_FindByDuration_does_not_find_any_video_an_VideoNotFoundException_should_be_thrown_successfully() {
+        VideoNotFoundException exception = assertThrows(VideoNotFoundException.class, () -> {
+            culturotecaService.findByDuration(1.0, 2.0);
+        });
+        assertEquals("Video not found.", exception.getMessage());
+    }
+
 }
