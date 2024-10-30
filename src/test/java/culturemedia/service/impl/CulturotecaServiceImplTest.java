@@ -2,8 +2,6 @@ package culturemedia.service.impl;
 
 import culturemedia.exception.VideoNotFoundException;
 import culturemedia.model.Video;
-import culturemedia.repository.VideoRepository;
-import culturemedia.repository.ViewsRepository;
 import culturemedia.repository.impl.VideoRepositoryImpl;
 import culturemedia.repository.impl.ViewsRepositoryImpl;
 import culturemedia.service.CulturotecaService;
@@ -37,9 +35,7 @@ class CulturotecaServiceImplTest {
     @Test
     void when_FindAll_does_not_find_any_video_an_VideoNotFoundException_should_be_thrown_successfully()  {
         culturotecaService = new CulturotecaServiceImpl( new VideoRepositoryImpl(), new ViewsRepositoryImpl());
-        VideoNotFoundException exception = assertThrows(VideoNotFoundException.class, () -> {
-            culturotecaService.findAll();
-        });
+        VideoNotFoundException exception = assertThrows(VideoNotFoundException.class, () -> culturotecaService.findAll());
     }
 
     @Test
@@ -58,9 +54,7 @@ class CulturotecaServiceImplTest {
 
     @Test
     void when_FindByTitle_does_not_find_any_video_an_VideoNotFoundException_should_be_thrown_successfully() {
-        VideoNotFoundException exception = assertThrows(VideoNotFoundException.class, () -> {
-            culturotecaService.findByTitle("Laboratory");
-        });
+        VideoNotFoundException exception = assertThrows(VideoNotFoundException.class, () -> culturotecaService.findByTitle("Laboratory"));
         assertEquals("Video not found by title: Laboratory", exception.getMessage());
     }
 
@@ -75,9 +69,7 @@ class CulturotecaServiceImplTest {
 
     @Test
     void when_FindByDuration_does_not_find_any_video_an_VideoNotFoundException_should_be_thrown_successfully() {
-        VideoNotFoundException exception = assertThrows(VideoNotFoundException.class, () -> {
-            culturotecaService.findByDuration(1.0, 2.0);
-        });
+        VideoNotFoundException exception = assertThrows(VideoNotFoundException.class, () -> culturotecaService.findByDuration(1.0, 2.0));
         assertEquals("Video not found.", exception.getMessage());
     }
 
