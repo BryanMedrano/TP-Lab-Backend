@@ -6,25 +6,24 @@ import culturemedia.exception.VideoNotFoundException;
 import culturemedia.model.Video;
 import culturemedia.service.CulturotecaService;
 
-public class CultureMediaController {
+public class CulturotecaController {
 
-	private final CulturotecaService cultureMediaService;
+	private final CulturotecaService culturotecaService;
 
-
-	public CultureMediaController(CulturotecaService cultureMediaService) {
-		this.cultureMediaService = cultureMediaService;
+	public CulturotecaController(CulturotecaService culturotecaService) {
+		this.culturotecaService = culturotecaService;
 	}
 
 	public List<Video> findAllVideos() throws VideoNotFoundException {
-
-		List<Video> videos = cultureMediaService.findAll();
+		List<Video> videos = culturotecaService.findAll();
 		if (videos.isEmpty()){
 			throw new VideoNotFoundException();
 		}
 		return videos;
 	}
+
 	public Video save(Video save){
-		return cultureMediaService.save(save);
+		return culturotecaService.save(save);
 	}
 }
 
