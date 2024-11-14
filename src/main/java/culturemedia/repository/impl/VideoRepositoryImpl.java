@@ -1,7 +1,6 @@
 package culturemedia.repository.impl;
 import java.util.ArrayList;
 import java.util.List;
-
 import culturemedia.model.Video;
 import culturemedia.repository.VideoRepository;
 import org.springframework.stereotype.Component;

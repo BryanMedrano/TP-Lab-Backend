@@ -5,11 +5,11 @@ import java.util.*;
 import culturemedia.exception.VideoNotFoundException;
 import culturemedia.model.Video;
 import culturemedia.service.CulturotecaService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("videos")
+@CrossOrigin(origins = "*")
 public class CulturotecaController {
 
 	private final CulturotecaService culturotecaService;

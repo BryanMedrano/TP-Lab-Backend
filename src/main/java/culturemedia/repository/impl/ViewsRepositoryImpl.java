@@ -2,7 +2,6 @@ package culturemedia.repository.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import culturemedia.model.View;
 import culturemedia.repository.ViewsRepository;
 import org.springframework.stereotype.Component;
